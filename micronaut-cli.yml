@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: io.github.sophon
+testFramework: junit
+sourceLanguage: kotlin
+buildTool: gradle_kotlin
+features: [app-name, data, data-jdbc, flyway, gitignore, gradle, http-client, jdbc-hikari, junit, kotlin, kotlin-application, ksp, logback, micronaut-aot, micronaut-build, micronaut-configuration-validation-gradle-plugin, micronaut-http-validation, netty-server, postgres, properties, rabbitmq, readme, serialization-jackson, shade, static-resources, testcontainers, websocket]

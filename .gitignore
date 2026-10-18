@@ -1,0 +1,51 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Kotlin (2.x compiler session data)
+.kotlin/
+
+# Maven / generic build output
+target/
+out/
+bin/
+
+# Micronaut
+.micronaut/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse / VS Code
+.project
+.settings/
+.classpath
+.factorypath
+.vscode/
+
+# Logs and runtime files
+*.log
+logs/
+hs_err_pid*.log
+replay_pid*.log
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+*.local.properties
+local.properties
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# graphify output
+graphify-out/
+
+# OS
+.DS_Store
+Thumbs.db
