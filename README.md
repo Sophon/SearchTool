@@ -1,3 +1,7 @@
+# SEARCH TOOL
+
+Use semantic search to find the perfect thing.
+
 ## Micronaut 5.2.2 Documentation
 
 - [User Guide](https://docs.micronaut.io/5.2.2/guide/index.html)
