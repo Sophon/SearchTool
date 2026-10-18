@@ -1,45 +1,43 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "2.3.21"
-    id("org.jetbrains.kotlin.plugin.allopen") version "2.3.21"
-    id("com.google.devtools.ksp") version "2.3.7"
-    id("io.micronaut.application") version "5.0.2"
-    id("com.gradleup.shadow") version "9.4.1"
-    id("io.micronaut.aot") version "5.0.2"
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.allopen)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.micronaut.application)
+    alias(libs.plugins.shadow)
+    alias(libs.plugins.micronaut.aot)
 }
 
 version = "0.1"
 group = "io.github.sophon"
 
 
-val kotlinVersion=project.properties.get("kotlinVersion")
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    ksp("io.micronaut.data:micronaut-data-processor")
-    ksp("io.micronaut:micronaut-http-validation")
-    ksp("io.micronaut.serde:micronaut-serde-processor")
-    implementation("io.micronaut:micronaut-http-client")
-    implementation("io.micronaut:micronaut-websocket")
-    implementation("io.micronaut.data:micronaut-data-jdbc")
-    implementation("io.micronaut.flyway:micronaut-flyway")
-    implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
-    implementation("io.micronaut.rabbitmq:micronaut-rabbitmq")
-    implementation("io.micronaut.serde:micronaut-serde-jackson")
-    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
-    runtimeOnly("ch.qos.logback:logback-classic")
-    runtimeOnly("org.flywaydb:flyway-database-postgresql")
-    runtimeOnly("org.postgresql:postgresql")
-    runtimeOnly("tools.jackson.module:jackson-module-kotlin")
-    testImplementation("org.apache.commons:commons-compress:1.28.0")
-    testImplementation("org.testcontainers:testcontainers")
-    testImplementation("org.testcontainers:testcontainers-junit-jupiter")
-    testImplementation("org.testcontainers:testcontainers-postgresql")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    ksp(libs.micronaut.data.processor)
+    ksp(libs.micronaut.http.validation)
+    ksp(libs.micronaut.serde.processor)
+    implementation(libs.micronaut.http.client)
+    implementation(libs.micronaut.websocket)
+    implementation(libs.micronaut.data.jdbc)
+    implementation(libs.micronaut.flyway)
+    implementation(libs.micronaut.kotlin.runtime)
+    implementation(libs.micronaut.rabbitmq)
+    implementation(libs.micronaut.serde.jackson)
+    implementation(libs.micronaut.jdbc.hikari)
+    implementation(libs.kotlin.reflect)
+    implementation(libs.kotlin.stdlib.jdk8)
+    runtimeOnly(libs.logback.classic)
+    runtimeOnly(libs.flyway.database.postgresql)
+    runtimeOnly(libs.postgresql)
+    runtimeOnly(libs.jackson.module.kotlin)
+    testImplementation(libs.commons.compress)
+    testImplementation(libs.testcontainers.core)
+    testImplementation(libs.testcontainers.junit.jupiter)
+    testImplementation(libs.testcontainers.postgresql)
+    testRuntimeOnly(libs.junit.platform.launcher)
 }
 
 
@@ -68,6 +66,7 @@ graalvmNative {
 
 
 micronaut {
+    version(libs.versions.micronaut.platform.get())
     runtime("netty")
     testRuntime("junit5")
     processing {
